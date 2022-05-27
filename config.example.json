@@ -1,0 +1,10 @@
+{
+  "debugmode": true,
+  "cdn_url": "https://thumbs.odycdn.com/",
+  "local_db": {
+    "host": "mysql",
+    "user": "emage",
+    "database": "emage",
+    "password": "emage"
+  }
+}
