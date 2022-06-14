@@ -8,6 +8,7 @@ require (
 	github.com/OdyseeTeam/mirage v1.1.15-0.20220527183132-86c67566bbf2
 	github.com/bluele/gcache v0.0.2
 	github.com/ekyoung/gin-nice-recovery v0.0.0-20160510022553-1654dca486db
+	github.com/gabriel-vasile/mimetype v1.4.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/johntdyer/slackrus v0.0.0-20211215141436-33e4a270affb
 	github.com/lbryio/lbry.go/v2 v2.7.2-0.20220504162735-e5ab0f883edf
@@ -15,6 +16,7 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.11.0
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
 require (
@@ -25,7 +27,6 @@ require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/chai2010/webp v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
-	github.com/gabriel-vasile/mimetype v1.4.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-errors/errors v1.4.2 // indirect
@@ -68,7 +69,6 @@ require (
 	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect
 	golang.org/x/image v0.0.0-20220413100746-70e8d0d3baa9 // indirect
 	golang.org/x/net v0.0.0-20220421235706-1d1ef9303861 // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect

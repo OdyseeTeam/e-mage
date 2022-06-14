@@ -17,26 +17,20 @@ func InstallRoute(r *gin.Engine) {
 }
 
 const (
-	ns = "e-mage"
+	ns = "emage"
 )
 
 var (
-	OptimizersRunning = promauto.NewGauge(prometheus.GaugeOpts{
+	UploadsRunning = promauto.NewGauge(prometheus.GaugeOpts{
 		Namespace: ns,
-		Subsystem: "optimizer",
-		Name:      "running",
-		Help:      "Number of images being currently optimized",
+		Subsystem: "http",
+		Name:      "uploads_running",
+		Help:      "Number of images being currently uploaded",
 	})
 	RequestCount = promauto.NewCounter(prometheus.CounterOpts{
 		Namespace: ns,
 		Subsystem: "http",
 		Name:      "requests_total",
 		Help:      "Total number of requested images",
-	})
-	RequestCachedCount = promauto.NewCounter(prometheus.CounterOpts{
-		Namespace: ns,
-		Subsystem: "http",
-		Name:      "requests_cached",
-		Help:      "Total number of requested images found in cache",
 	})
 )

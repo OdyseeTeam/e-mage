@@ -36,7 +36,7 @@ var serveCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		stopper := stop.New()
 		config.InitializeConfiguration()
-		err := configs.Init("godycdn.json")
+		err := configs.Init("config.json")
 		if err != nil {
 			logrus.Fatalln(errors.FullTrace(err))
 		}

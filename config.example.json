@@ -2,9 +2,18 @@
   "debugmode": true,
   "cdn_url": "https://thumbs.odycdn.com/",
   "local_db": {
-    "host": "mysql",
+    "host": "localhost",
     "user": "emage",
     "database": "emage",
     "password": "emage"
-  }
+  },
+  "s3_origins": [
+    {
+      "id": "s3id",
+      "secret": "s3secret",
+      "region": "us-east-1",
+      "bucket": "thumbs.odycdn.com",
+      "endpoint": "s3.whatever.com"
+    }
+  ]
 }

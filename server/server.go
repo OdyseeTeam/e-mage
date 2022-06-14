@@ -7,13 +7,14 @@ import (
 
 	"github.com/OdyseeTeam/e-mage/internal/metrics"
 	"github.com/OdyseeTeam/mirage/optimizer"
-	"github.com/bluele/gcache"
 
 	"github.com/OdyseeTeam/gody-cdn/store"
+	"github.com/bluele/gcache"
 	nice "github.com/ekyoung/gin-nice-recovery"
 	"github.com/gin-gonic/gin"
 	"github.com/lbryio/lbry.go/v2/extras/stop"
 	log "github.com/sirupsen/logrus"
+	"golang.org/x/sync/singleflight"
 )
 
 // Server is an instance of a peer server that houses the listener and store.
@@ -22,6 +23,7 @@ type Server struct {
 	optimizer  *optimizer.Optimizer
 	cache      store.ObjectStore
 	errorCache gcache.Cache
+	sf         *singleflight.Group
 }
 
 // NewServer returns an initialized Server pointer.
@@ -31,6 +33,7 @@ func NewServer(optimizer *optimizer.Optimizer, cache store.ObjectStore) *Server 
 		optimizer:  optimizer,
 		cache:      cache,
 		errorCache: gcache.New(10000).Expiration(2 * time.Minute).Build(),
+		sf:         &singleflight.Group{},
 	}
 }
 
@@ -50,6 +53,7 @@ func (s *Server) Start(address string) error {
 	router.Use(nice.Recovery(s.recoveryHandler))
 	router.Use(s.addCSPHeaders)
 	metrics.InstallRoute(router)
+	router.GET("/r/:resource", s.getImageHandler)
 	router.POST("/upload", s.uploadHandler)
 	router.POST("/upload.php", s.uploadHandler)
 	srv := &http.Server{
