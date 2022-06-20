@@ -87,10 +87,17 @@ func (s *Server) uploadHandler(c *gin.Context) {
 	h.Write(newImage)
 	hashedName := hex.EncodeToString(h.Sum(nil))
 
-	err = s.cache.Put(hashedName, optimized, nil)
+	alreadyStored, err := s.cache.Has(hashedName, nil)
 	if err != nil {
 		_ = c.AbortWithError(http.StatusInternalServerError, err)
 		return
+	}
+	if !alreadyStored {
+		err = s.cache.Put(hashedName, optimized, nil)
+		if err != nil {
+			_ = c.AbortWithError(http.StatusInternalServerError, err)
+			return
+		}
 	}
 
 	c.Header("X-e-mage-saved-bytes", fmt.Sprintf("%d", len(newImage)-len(optimized)))
