@@ -37,6 +37,8 @@ services:
       /app/dist/linux_amd64/e-mage serve
     depends_on:
       - mysql
+    environment:
+      - SPACE_USE_DB=true
   watchtower:
     container_name: watchtower
     image: 'containrrr/watchtower'
