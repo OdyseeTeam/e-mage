@@ -9,7 +9,8 @@ require (
 	github.com/bluele/gcache v0.0.2
 	github.com/ekyoung/gin-nice-recovery v0.0.0-20160510022553-1654dca486db
 	github.com/gabriel-vasile/mimetype v1.4.0
-	github.com/gin-gonic/gin v1.7.7
+	github.com/gin-contrib/cors v1.3.2-0.20220606235120-1cb620bc77f6
+	github.com/gin-gonic/gin v1.8.1
 	github.com/johntdyer/slackrus v0.0.0-20211215141436-33e4a270affb
 	github.com/lbryio/lbry.go/v2 v2.7.2-0.20220504162735-e5ab0f883edf
 	github.com/prometheus/client_golang v1.12.1
@@ -34,6 +35,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.10.1 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
+	github.com/goccy/go-json v0.9.7 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20190915194858-d3ddacdb130f // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
@@ -53,7 +55,7 @@ require (
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/oov/psd v0.0.0-20220121172623-5db5eafcecbb // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
-	github.com/pelletier/go-toml/v2 v2.0.0-beta.8 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect

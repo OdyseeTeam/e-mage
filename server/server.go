@@ -6,11 +6,12 @@ import (
 	"time"
 
 	"github.com/OdyseeTeam/e-mage/internal/metrics"
-	"github.com/OdyseeTeam/mirage/optimizer"
 
 	"github.com/OdyseeTeam/gody-cdn/store"
+	"github.com/OdyseeTeam/mirage/optimizer"
 	"github.com/bluele/gcache"
 	nice "github.com/ekyoung/gin-nice-recovery"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/lbryio/lbry.go/v2/extras/stop"
 	log "github.com/sirupsen/logrus"
@@ -52,6 +53,7 @@ func (s *Server) Start(address string) error {
 	router.Use(s.ErrorHandle)
 	router.Use(nice.Recovery(s.recoveryHandler))
 	router.Use(s.addCSPHeaders)
+	router.Use(cors.Default())
 	metrics.InstallRoute(router)
 	router.GET("/r/:resource", s.getImageHandler)
 	router.POST("/upload", s.uploadHandler)
