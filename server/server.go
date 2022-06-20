@@ -55,9 +55,10 @@ func (s *Server) Start(address string) error {
 	router.Use(s.addCSPHeaders)
 	router.Use(cors.Default())
 	metrics.InstallRoute(router)
-	router.GET("/r/:resource", s.getImageHandler)
 	router.POST("/upload", s.uploadHandler)
 	router.POST("/upload.php", s.uploadHandler)
+	router.GET("/r/:resource", s.getImageHandler)
+	router.GET("/:resource", s.getImageHandler)
 	srv := &http.Server{
 		Addr:    address,
 		Handler: router,

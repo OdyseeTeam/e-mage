@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"mime/multipart"
 	"net/http"
+	"strings"
 
 	"github.com/OdyseeTeam/e-mage/config"
 	"github.com/OdyseeTeam/e-mage/internal/metrics"
@@ -25,6 +26,7 @@ type uploadResponse struct {
 
 func (s *Server) getImageHandler(c *gin.Context) {
 	resource := c.Param("resource")
+	resource = strings.Split(resource, ".")[0]
 	imagePtr, err, shared := s.sf.Do(resource, func() (interface{}, error) {
 		logrus.Warningf("missed %s", resource)
 		image, _, err := s.cache.Get(resource, nil)
@@ -124,7 +126,7 @@ func (s *Server) ErrorHandle(c *gin.Context) {
 	if err == nil {
 		return
 	}
-	logrus.Errorln(errors.FullTrace(err))
+	logrus.Errorln(err)
 	c.String(-1, err.Error())
 }
 
