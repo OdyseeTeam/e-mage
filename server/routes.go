@@ -21,6 +21,7 @@ import (
 type uploadResponse struct {
 	Url      string `json:"url"`
 	FileName string `json:"file_name"`
+	Type     string `json:"type"`    //backward compatibility
 	Message  string `json:"message"` //backward compatibility
 }
 
@@ -110,6 +111,7 @@ func (s *Server) uploadHandler(c *gin.Context) {
 		FileName: fmt.Sprintf("%s.webp", hashedName),
 		Url:      fmt.Sprintf("%s%s.webp", config.CdnUrl, hashedName),
 		Message:  fmt.Sprintf("%s%s.webp", config.CdnUrl, hashedName),
+		Type:     "success",
 	})
 }
 
