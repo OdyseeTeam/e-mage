@@ -28,7 +28,7 @@ type uploadResponse struct {
 func (s *Server) getImageHandler(c *gin.Context) {
 	resource := c.Param("resource")
 	resource = strings.Split(resource, ".")[0]
-	imagePtr, err, shared := s.sf.Do(resource, func() (interface{}, error) {
+	imagePtr, err, _ := s.sf.Do(resource, func() (interface{}, error) {
 		logrus.Warningf("missed %s", resource)
 		image, _, err := s.cache.Get(resource, nil)
 		if err != nil {
@@ -45,7 +45,6 @@ func (s *Server) getImageHandler(c *gin.Context) {
 		return
 	}
 	image := *(imagePtr.(*[]byte))
-	logrus.Infof("shared: %t", shared)
 	contentType := mimetype.Detect(image).String()
 	c.Data(200, contentType, image)
 }
