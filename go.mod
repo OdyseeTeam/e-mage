@@ -4,8 +4,8 @@ go 1.17
 
 require (
 	github.com/Depado/ginprom v1.7.4
-	github.com/OdyseeTeam/gody-cdn v1.0.3
-	github.com/OdyseeTeam/mirage v1.1.15-0.20220527183132-86c67566bbf2
+	github.com/OdyseeTeam/gody-cdn v1.0.4
+	github.com/OdyseeTeam/mirage v1.2.2
 	github.com/bluele/gcache v0.0.2
 	github.com/ekyoung/gin-nice-recovery v0.0.0-20160510022553-1654dca486db
 	github.com/gabriel-vasile/mimetype v1.4.0
@@ -81,3 +81,4 @@ require (
 )
 
 //replace github.com/OdyseeTeam/gody-cdn => /home/niko/work/repositories/gody-cdn/
+//replace github.com/OdyseeTeam/mirage => /home/niko/work/repositories/mirage/
