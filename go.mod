@@ -1,6 +1,6 @@
 module github.com/OdyseeTeam/e-mage
 
-go 1.17
+go 1.18
 
 require (
 	github.com/Depado/ginprom v1.7.4

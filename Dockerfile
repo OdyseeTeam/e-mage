@@ -1,4 +1,6 @@
-FROM golang:1.17.10-bullseye
+FROM golang:1.18-bullseye
+
+RUN apt-get update && apt-get install -y libvips-dev
 
 WORKDIR /app
 COPY . /app/
