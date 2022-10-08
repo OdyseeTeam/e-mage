@@ -15,7 +15,7 @@ to be updated
 To be updated
 
 ## Building from Source
-This project requires [Go v1.17](https://golang.org/doc/install).
+This project requires [Go v1.18](https://golang.org/doc/install).
 
 On Ubuntu you can install it with `sudo snap install go --classic`.
 

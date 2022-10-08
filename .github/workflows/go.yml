@@ -16,7 +16,10 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.17.x
+          go-version: 1.18.x
+
+      - name: install needed libraries
+        run: sudo apt-get update && sudo apt-get install -y libvips-dev
 
       - name: Build linux
         run: make linux
